@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para alguien especial 💛</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      color: #fff;
+      background: #1d160f url('fondo.png') center/cover fixed no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(20, 12, 5, .38);
+      z-index: -1;
+    }
+    .card {
+      width: min(760px, 100%);
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: 28px;
+      background: rgba(30, 20, 10, .38);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    .date { letter-spacing: 5px; font-size: .8rem; }
+    h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); margin: 22px 0 12px; font-style: italic; }
+    .intro { font-size: clamp(1rem, 2.5vw, 1.35rem); line-height: 1.6; }
+    .letter {
+      margin: 28px auto;
+      max-width: 620px;
+      padding: 28px;
+      color: #332414;
+      background: #fff2ce;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.2);
+      line-height: 1.8;
+      font-size: 1.08rem;
+    }
+    .letter strong { color: #a66b00; }
+    .music {
+      margin: 20px auto;
+      max-width: 460px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 18px;
+      background: rgba(0,0,0,.25);
+    }
+    audio { width: 100%; }
+    .hint { font-size: .85rem; opacity: .85; }
+    button {
+      border: 0; border-radius: 999px; padding: 15px 28px;
+      font-size: 1rem; cursor: pointer; background: #ffd45c; color: #3b2600;
+      box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+    #final { display: none; margin-top: 20px; font-size: 1.2rem; }
+    .petal { position: fixed; top: -30px; animation: fall linear infinite; opacity: .8; pointer-events:none; }
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <main class="card">
+    <div class="date">FELIZ 21 DE SEPTIEMBRE 💛</div>
+    <h1>Para alguien muy especial ♡</h1>
+    <p class="intro">Aunque la distancia nos separe, quería que estas flores llegaran hasta ti.</p>
+
+    <section class="music">
+      <p>🎶 Una canción para ti</p>
+      <audio controls loop>
+        <source src="musica.mp3" type="audio/mpeg" />
+        Tu navegador no puede reproducir este audio.
+      </audio>
+      <p class="hint">Coloca tu canción con el nombre <b>musica.mp3</b> en esta misma carpeta.</p>
+    </section>
+
+    <section class="letter">
+      Así como los girasoles siempre buscan la luz,<br>
+      <strong>tú iluminas mi vida de una forma única.</strong><br><br>
+      Gracias por ser esa persona tan especial, por tu sonrisa y por hacer que incluso a la distancia todo se sienta más bonito.<br><br>
+      Espero que estas flores te saquen una sonrisa hoy y que sepas que siempre pienso en ti.<br><br>
+      <strong>Feliz día de las flores amarillas, mi niña. 🌻💛</strong>
+    </section>
+
+    <button onclick="mostrarMensaje()">♡ Siempre contigo</button>
+    <p id="final">Ojalá pronto pueda entregarte girasoles con mis propias manos y abrazarte muy fuerte. ❤️</p>
+  </main>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById('final').style.display = 'block';
+    }
+    for (let i = 0; i < 18; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.textContent = '🌻';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (7 + Math.random() * 8) + 's';
+      petal.style.animationDelay = (-Math.random() * 12) + 's';
+      petal.style.fontSize = (14 + Math.random() * 16) + 'px';
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
