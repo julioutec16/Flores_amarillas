@@ -61,8 +61,39 @@
       font-size: 1rem; cursor: pointer; background: #ffd45c; color: #3b2600;
       box-shadow: 0 5px 15px rgba(0,0,0,.2);
     }
-    #final { display: none; margin-top: 20px; font-size: 1.2rem; }
-    .petal { position: fixed; top: -30px; animation: fall linear infinite; opacity: .8; pointer-events:none; }
+    #final {
+        display: none;
+        margin-top: 20px;
+        font-size: 1.2rem;
+        text-align: center;
+        animation: aparecer 1.5s ease-in-out;
+    }
+    #snoopy {
+      display: block;
+      width: 100%;
+      max-width: 650px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    @keyframes aparecer {
+      from {
+       opacity: 0;
+       transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+       }
+    }
+    .petal {
+     position: fixed;
+     top: -30px;
+     animation: fall linear infinite;
+     opacity: .8;
+     pointer-events: none;
+    }
     @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
   </style>
 </head>
@@ -90,7 +121,19 @@
     </section>
 
     <button onclick="mostrarMensaje()">Click aquí, para un mensaje más jaja</button>
-    <p id="final">Y  llegara el día donde este esperando afuera de tu casa con un ramo de girasoles :)</p>
+
+<div id="final" class="mensaje-final">
+  <p>
+    Y llegara el día donde este esperando afuera de tu casa con un ramo de girasoles :)
+  </p>
+
+  <img
+    id="snoopy"
+    src="snoopy-girasoles.png"
+    alt="Snoopy sosteniendo un ramo de girasoles"
+  />
+</div>
+    
   </main>
 
   <script>
